@@ -30,12 +30,6 @@ export const SkillGrid = () => {
             xs
           >
             {groupedSkills[category].map((skill) => (
-              // <img
-              //   src={`https://img.shields.io/badge/${skill.name}-${skill.colour}?style=for-the-badge&logo=${skill.logo}&logoColor=white`}
-              //   alt={skill.name}
-              //   style={{ margin: '3px' }}
-              //   key={skill.name}
-              // ></img>
               <Image
                 src={`https://img.shields.io/badge/${skill.name}-${skill.colour}?style=for-the-badge&logo=${skill.logo}&logoColor=white`}
                 alt={skill.name}
