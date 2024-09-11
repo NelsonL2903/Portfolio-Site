@@ -30,7 +30,7 @@ export const jobs = [
   },
   {
     name: 'Swap Robotics',
-    title: 'Web Debeloper Co-op',
+    title: 'Web Developer Co-op',
     start: 'May 2023',
     end: 'August 2023',
     logo: swapLogo,

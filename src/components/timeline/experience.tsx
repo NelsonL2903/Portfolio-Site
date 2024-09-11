@@ -5,7 +5,7 @@ import type { StaticImageData } from 'next/image';
 import Image from 'next/image';
 
 type jobInfo = {
-  logo: string | StaticImageData;
+  logo: StaticImageData;
   name: string;
   title: string;
   start: string;
@@ -18,9 +18,18 @@ const Experience = ({ jobInfo }: { jobInfo: jobInfo }) => {
 
   return (
     <Slide direction='right' in>
-      <Grid container direction='row' justifyContent='flex-start' alignItems='center' size={{ xs: 6 }} margin='30px'>
-        <Grid container direction='column' justifyContent='flex-start' alignItems='center' size={{ xs: 6 }}>
-          <Image src={job.logo} alt='logo' width={100} height={100} />
+      <Grid container direction='row' justifyContent='flex-start' alignItems='center' size='grow' margin='30px'>
+        <Grid container direction='column' justifyContent='flex-start' alignItems='center' size='grow' height='100%'>
+          <Grid container height='30vh' size={{ xs: 8 }} position='relative'>
+            <Image
+              src={job.logo}
+              alt='logo'
+              fill
+              style={{
+                objectFit: 'contain'
+              }}
+            />
+          </Grid>
           <Typography variant='h5' style={{ color: 'white', marginTop: '25px' }}>
             {job.name}
           </Typography>
@@ -31,14 +40,14 @@ const Experience = ({ jobInfo }: { jobInfo: jobInfo }) => {
             {job.start} - {job.end}
           </Typography>
         </Grid>
-        <Grid container direction='column' justifyContent='flex-start' alignItems='center' size={{ xs: 6 }}>
+        <Grid container direction='column' justifyContent='flex-start' alignItems='center' size='grow'>
           <List>
             {job.achievements.map((achievement) => (
               <ListItem key={achievement}>
                 <ListItemIcon>
                   <ArrowForwardIcon fontSize='large' style={{ color: 'white' }} />
                 </ListItemIcon>
-                <ListItemText primaryTypographyProps={{ fontSize: '20px', color: 'white' }} primary={achievement} />
+                <ListItemText primaryTypographyProps={{ fontSize: '18px', color: 'white' }} primary={achievement} />
               </ListItem>
             ))}
           </List>

@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
+import { Box } from '@mui/material';
+import NavigationBar from '@/components/navigation-bar/navigation-bar';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -16,7 +18,19 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <Box
+          sx={{
+            backgroundColor: '#121212',
+            width: '100%',
+            minHeight: '100vh',
+            height: '100%'
+          }}
+        >
+          <NavigationBar />
+          {children}
+        </Box>
+      </body>
     </html>
   );
 }

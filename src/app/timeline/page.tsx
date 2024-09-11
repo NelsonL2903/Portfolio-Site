@@ -1,3 +1,5 @@
+'use client';
+
 import { Box, Button, Slider } from '@mui/material';
 import Grid from '@mui/material/Grid2';
 import { useState } from 'react';
@@ -5,7 +7,8 @@ import { NavigateBefore, NavigateNext } from '@mui/icons-material';
 import Experience from '@/components/timeline/experience';
 import { jobs } from '@/components/utils/jobs_info';
 
-const marks: { value: number; label: string }[] = [];
+type marks = { value: number; label: string }[];
+const marks: marks = [];
 const markBaseValue = 100 / (jobs.length - 1);
 
 jobs.forEach((job, index) => {
@@ -18,9 +21,9 @@ export const TimelinePage = () => {
   const [disabledPrevious, setDisabledPrevious] = useState(false);
   const [disabledNext, setDisabledNext] = useState(true);
 
-  function valueLabelFormat(value: number) {
+  const valueLabelFormat = (value: number) => {
     return marks[marks.findIndex((mark) => mark.value === value)]?.label;
-  }
+  };
 
   const handleSliderChange = (value: number) => {
     setSliderValue(value);
@@ -80,15 +83,8 @@ export const TimelinePage = () => {
   };
 
   return (
-    <Box
-      sx={{
-        backgroundColor: '#121212',
-        width: '100%',
-        height: '100vh',
-        overflow: 'hidden'
-      }}
-    >
-      <Grid container direction='row' justifyContent='flex-start' alignItems='center' size={{ xs: 6 }}>
+    <Box display='flex' flexDirection='column' justifyContent='space-between' height='90vh'>
+      <Grid container direction='row' justifyContent='flex-start' alignItems='center' size='grow'>
         <Slider
           aria-label='Restricted values'
           value={sliderValue}
@@ -100,7 +96,7 @@ export const TimelinePage = () => {
             const target = event.target as HTMLInputElement;
             handleSliderChange(Number(target.value));
           }}
-          onChangeCommitted={(event, value) => {
+          onChangeCommitted={(_, value) => {
             handleSliderChangeCommit(Number(value));
           }}
           style={{
@@ -113,10 +109,10 @@ export const TimelinePage = () => {
               color: 'white'
             }
           }}
-        ></Slider>
+        />
         {jobs.map((job, index) => pageIndex === marks[index].value && <Experience jobInfo={job} key={job.title} />)}
       </Grid>
-      <Grid container direction='row' justifyContent='center' alignItems='flex-end' size={{ xs: 6 }}>
+      <Grid container direction='row' justifyContent='center' alignItems='flex-end' size='grow' component='footer'>
         <Button
           variant='contained'
           size='large'
