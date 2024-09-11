@@ -20,7 +20,14 @@ const Experience = ({ jobInfo }: { jobInfo: jobInfo }) => {
     <Slide direction='right' in>
       <Grid container direction='row' justifyContent='flex-start' alignItems='center' size='grow' margin='30px'>
         <Grid container direction='column' justifyContent='flex-start' alignItems='center' size='grow' height='100%'>
-          <Grid container height='30vh' size={{ xs: 8 }} position='relative'>
+          <Grid
+            container
+            justifyContent='center'
+            alignItems='center'
+            height='30vh'
+            size={{ xs: 8 }}
+            position='relative'
+          >
             <Image
               src={job.logo}
               alt='logo'

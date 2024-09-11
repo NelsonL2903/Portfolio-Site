@@ -1,5 +1,6 @@
 import swapLogo from '@/assets/swap-logo.png';
 import tuqLogo from '@/assets/tuq-logo.png';
+import onOrderLogo from '@/assets/onorder-logo.png';
 
 export const jobs = [
   {
@@ -39,6 +40,19 @@ export const jobs = [
       'Integrated Google Maps APIs to simultaneously track and visualize the real time locations of 20+ robots.',
       'Developed robust REST APIs to interact with AWS S3 Buckets as well as PostgreSQL database through the Prisma ORM.',
       'Increased code coverage by 70% by implementing Jest unit tests for REST APIs and established GitHub Actions for automated testing on an AWS EC2 Instance.'
+    ]
+  },
+  {
+    name: 'OnOrder',
+    title: 'Software Engineering Intern',
+    start: 'January 2024',
+    end: 'April 2024',
+    logo: onOrderLogo,
+    achievements: [
+      'Integrated OpenAI and HuggingFace APIs to standardize user data, and implemented Redis caching to optimize data retrieval, resulting in reduced API calls by 98% and a faster data normalization process by 85%.',
+      'Leveraged TypeScript and Material-UI and integrated responsive web design principles to seamlessly translate Figma designs into a Next.js application, ensuring optimal functionality across all screen sizes and enhancing overall user experience.',
+      'Conducted research on OpenAI Assistants and Stripe Connect, broke down implementation requirements and planned out project tickets.',
+      'Employed Puppeteer to systematically extract product details from diverse websites for over 10,000 products, facilitating comprehensive data collection.'
     ]
   }
 ];
