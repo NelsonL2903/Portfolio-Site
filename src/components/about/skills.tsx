@@ -1,9 +1,10 @@
-import { Grid, Typography } from '@mui/material';
+import { Typography } from '@mui/material';
+import Grid from '@mui/material/Grid2';
 import SkillGrid from './skill-grid';
 
-export const Skills = () => {
+const Skills = () => {
   return (
-    <Grid item container direction='column' justifyContent='center' alignItems='center' xs height='100%'>
+    <Grid container direction='column' justifyContent='center' alignItems='center' size={{ xs: 6 }} height='100%'>
       <Typography variant='h5' color='common.white'>
         Technical Skills:
       </Typography>

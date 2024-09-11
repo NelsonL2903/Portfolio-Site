@@ -1,8 +1,9 @@
-import { Box, Grid } from '@mui/material';
-import Profile from '../components/about/profile';
-import Skills from '../components/about/skills';
+import { Box } from '@mui/material';
+import Grid from '@mui/material/Grid2';
+import Profile from '@/components/about/profile';
+import Skills from '@/components/about/skills';
 
-export const AboutPage = () => {
+const AboutPage = (): JSX.Element => {
   return (
     <Box
       sx={{
@@ -13,12 +14,11 @@ export const AboutPage = () => {
       }}
     >
       <Grid
-        item
         container
         direction='row'
         justifyContent='flex-start'
         alignItems='center'
-        xs
+        size={{ xs: 6 }}
         margin='30px'
         marginTop='60px'
       >

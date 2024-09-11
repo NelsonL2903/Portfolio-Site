@@ -1,12 +1,13 @@
-import { Grid, Typography } from '@mui/material';
-import Portrait from '../../assets/portrait.jpg';
-import Itch from '../../assets/itchio.jpg';
+import { Typography } from '@mui/material';
+import Grid from '@mui/material/Grid2';
+import Portrait from '@/assets/portrait.jpg';
+import Itch from '@/assets/itchio.jpg';
 import Image from 'next/image';
 import ImageLink from '../utils/image-link';
 
-export const Profile = () => {
+const Profile = () => {
   return (
-    <Grid item container direction='column' justifyContent='center' alignItems='center' xs height='100%'>
+    <Grid container direction='column' justifyContent='center' alignItems='center' size={{ xs: 6 }} height='100%'>
       <Image src={Portrait} alt='portrait' width='288' height='288' />
       <Typography variant='h3' color='common.white'>
         Nelson Loop
@@ -18,12 +19,11 @@ export const Profile = () => {
         University of Waterloo
       </Typography>
       <Grid
-        item
         container
         direction='row'
         justifyContent='center'
         alignItems='center'
-        xs
+        size={{ xs: 6 }}
         height='100%'
         marginTop='10px'
       >

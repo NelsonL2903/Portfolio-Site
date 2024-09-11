@@ -1,4 +1,4 @@
-export type SkillType = 'frontend' | 'backend' | 'libraries' | 'cloud' | 'environments' | 'other';
+export type SkillType = 'Frontend' | 'Backend' | 'Libraries' | 'Cloud' | 'Environments' | 'Other';
 
 export type Skill = {
   type: SkillType;
