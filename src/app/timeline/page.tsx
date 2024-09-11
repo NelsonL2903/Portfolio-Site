@@ -15,7 +15,7 @@ jobs.forEach((job, index) => {
   marks.push({ value: markBaseValue * index, label: job.start });
 });
 
-export const TimelinePage = () => {
+const TimelinePage = () => {
   const [sliderValue, setSliderValue] = useState(100);
   const [pageIndex, setPageIndex] = useState(100);
   const [disabledPrevious, setDisabledPrevious] = useState(false);
