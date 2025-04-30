@@ -23,8 +23,8 @@ export default function RootLayout({
           sx={{
             backgroundColor: '#121212',
             width: '100%',
-            minHeight: '100vh',
-            height: '100%'
+            height: '100vh',
+            overflow: 'hidden'
           }}
         >
           <NavigationBar />
