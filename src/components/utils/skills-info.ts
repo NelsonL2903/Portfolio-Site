@@ -26,6 +26,12 @@ export const logos: Skill[] = [
     logo: 'css3'
   },
   {
+    type: 'Frontend',
+    name: 'Material--UI',
+    colour: '007FFF',
+    logo: 'mui'
+  },
+  {
     type: 'Backend',
     name: 'Java',
     colour: 'ED8B00',
@@ -62,22 +68,10 @@ export const logos: Skill[] = [
     logo: 'c-sharp'
   },
   {
-    type: 'Libraries',
-    name: 'ROS',
-    colour: '22314E',
-    logo: 'ros'
-  },
-  {
-    type: 'Libraries',
-    name: 'Material--UI',
-    colour: '007FFF',
-    logo: 'mui'
-  },
-  {
     type: 'Cloud',
     name: 'Amazon_AWS',
     colour: '232F3E',
-    logo: 'amazon-aws'
+    logo: 'amazonwebservices'
   },
   {
     type: 'Cloud',
@@ -111,9 +105,21 @@ export const logos: Skill[] = [
   },
   {
     type: 'Environments',
+    name: 'Visual_Studio',
+    colour: 'AE7FE2',
+    logo: 'visual%20studio'
+  },
+  {
+    type: 'Environments',
     name: 'Eclipse',
     colour: '2C2255',
     logo: 'eclipse'
+  },
+  {
+    type: 'Other',
+    name: 'ROS',
+    colour: '22314E',
+    logo: 'ros'
   },
   {
     type: 'Other',

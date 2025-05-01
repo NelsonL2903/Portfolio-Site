@@ -1,8 +1,7 @@
 import { Typography } from '@mui/material';
-import Grid from '@mui/material/Grid2';
+import Grid from '@mui/material/Grid';
 import { logos } from '../utils/skills-info';
 import type { Skill } from '../utils/types';
-import Image from 'next/image';
 import { Fragment } from 'react';
 
 const Capitalize = (text: string) => (text && text[0].toUpperCase() + text.slice(1)) || '';

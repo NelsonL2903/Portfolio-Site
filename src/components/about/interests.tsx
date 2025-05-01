@@ -1,17 +1,22 @@
-import { Typography } from '@mui/material';
-import Grid from '@mui/material/Grid2';
-import Portrait from '@/assets/beach-portrait.jpg';
+import { Typography, Grid } from '@mui/material';
 import { ReactTyped } from 'react-typed';
+import Portrait from '@/assets/beach-portrait.jpg';
 
 const Interests = () => {
   return (
-    <Grid container direction='row' justifyContent='space-around' alignItems='center' height='100%'>
-      <Grid container direction='column' justifyContent='center' alignItems='center' size={{ xs: 6 }}>
-        <Typography variant='h3' color='common.white' fontFamily='monaco'>
+    <Grid container direction="row" justifyContent="space-around" alignItems="center" height="100%">
+      <Grid
+        container
+        direction="column"
+        justifyContent="center"
+        alignItems="center"
+        size={{ xs: 6 }}
+      >
+        <Typography variant="h3" color="common.white" fontFamily="monaco">
           About me:
         </Typography>
-        <Grid container justifyContent='left' alignItems='top' width='80%'>
-          <Typography variant='h2' color='common.white' fontFamily='monaco'>
+        <Grid container justifyContent="left" alignItems="top" width="80%">
+          <Typography variant="h2" color="common.white" fontFamily="monaco">
             I love{' '}
             <ReactTyped
               strings={[
@@ -29,12 +34,12 @@ const Interests = () => {
           </Typography>
         </Grid>
       </Grid>
-      <Grid container justifyContent='center' alignItems='center' size={{ xs: 6 }}>
+      <Grid container justifyContent="center" alignItems="center" size={{ xs: 6 }}>
         <img
           src={Portrait.src}
-          alt='portrait'
-          width='50%'
-          height='auto'
+          alt="portrait"
+          width="50%"
+          height="auto"
           style={{ borderRadius: '20px', border: 'solid 8px #121212' }}
         />
       </Grid>

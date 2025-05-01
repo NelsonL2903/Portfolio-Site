@@ -2,107 +2,66 @@
 
 import { Parallax, ParallaxLayer } from '@react-spring/parallax';
 import type { IParallax } from '@react-spring/parallax';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import ProfileInfo from './profile-info';
 import Interests from './interests';
 import Skills from './skills';
-import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
+import ArrowUpward from '@mui/icons-material/ArrowUpward';
+import ArrowDownward from '@mui/icons-material/ArrowDownward';
+import ParallaxCard from './ParallaxCard';
+import { CARD_HEIGHT, CARD_NUM, CARD_WIDTH } from './constants';
+import { Box, Grid } from '@mui/material';
+import { decrementPage, incrementPage } from './helpers';
 
 const Profile = () => {
   const parallax = useRef<IParallax>(null!);
-  const pageNum = 3;
-
-  const accentColour = '#252525';
-  const cardStyle = {
-    backgroundColor: accentColour,
-    borderRadius: 20,
-    maxWidth: '98%'
-  };
+  const [currentPage, setCurrentPage] = useState(0);
 
   return (
-    <Parallax ref={parallax} pages={pageNum}>
-      <ParallaxLayer
-        offset={0}
-        speed={1}
-        factor={0.85}
-        style={{ ...cardStyle, boxShadow: '0 -10px 7px -7px white inset' }}
-      />
-      <ParallaxLayer
-        offset={1}
-        speed={1}
-        factor={0.85}
-        style={{ ...cardStyle, boxShadow: '0 -10px 7px -7px white inset, 0 10px 7px -7px white inset' }}
-      />
-      <ParallaxLayer
-        offset={2}
-        speed={1}
-        factor={0.85}
-        style={{ ...cardStyle, boxShadow: '0 10px 7px -7px white inset' }}
-      />
-      <ParallaxLayer offset={0.425} speed={-0.75}>
-        <div className='flash'>
-          <ArrowDownwardIcon style={{ color: 'white', marginLeft: '95%', fontSize: '48px' }} />
-        </div>
-      </ParallaxLayer>
-
-      <ParallaxLayer offset={0} speed={0} factor={pageNum} />
-
-      <ParallaxLayer
-        offset={0}
-        speed={0.5}
-        factor={0.85}
-        onClick={() => parallax.current.scrollTo(1)}
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center'
-        }}
-      >
-        <ProfileInfo />
-      </ParallaxLayer>
-
-      <ParallaxLayer
-        offset={0}
-        speed={0.5}
-        factor={0.85}
-        onClick={() => parallax.current.scrollTo(1)}
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center'
-        }}
-      >
-        <ProfileInfo />
-      </ParallaxLayer>
-
-      <ParallaxLayer
-        offset={1}
-        speed={0.1}
-        factor={0.85}
-        onClick={() => parallax.current.scrollTo(2)}
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center'
-        }}
-      >
-        <Skills />
-      </ParallaxLayer>
-
-      <ParallaxLayer
-        offset={2}
-        speed={0.1}
-        factor={0.85}
-        onClick={() => parallax.current.scrollTo(0)}
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center'
-        }}
-      >
-        <Interests />
-      </ParallaxLayer>
-    </Parallax>
+    <Box
+      sx={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: '100vh',
+        width: '100vw'
+      }}
+    >
+      <Parallax ref={parallax} pages={CARD_NUM} style={{ width: CARD_WIDTH, overflow: 'hidden' }}>
+        <ParallaxLayer offset={0} speed={0} factor={CARD_NUM} />
+        <ParallaxCard offset={0} component={<ProfileInfo />} />
+        <ParallaxCard offset={1} component={<Skills />} />
+        <ParallaxCard offset={2} component={<Interests />} />
+        <ParallaxLayer offset={0} speed={-1}>
+          <Box className="flash" style={{ height: CARD_HEIGHT }}>
+            <Grid
+              style={{ height: '50%', padding: '20px' }}
+              sx={{
+                display: 'flex',
+                justifyContent: 'flex-end',
+                alignItems: 'flex-start',
+                visibility: currentPage === 0 ? 'hidden' : 'visible'
+              }}
+              onClick={() => decrementPage(currentPage, setCurrentPage, parallax)}
+            >
+              <ArrowUpward style={{ color: 'white', fontSize: '48px' }} />
+            </Grid>
+            <Grid
+              style={{ height: '50%', padding: '20px' }}
+              sx={{
+                display: 'flex',
+                justifyContent: 'flex-end',
+                alignItems: 'flex-end',
+                visibility: currentPage === CARD_NUM - 1 ? 'hidden' : 'visible'
+              }}
+              onClick={() => incrementPage(currentPage, setCurrentPage, parallax)}
+            >
+              <ArrowDownward style={{ color: 'white', fontSize: '48px' }} />
+            </Grid>
+          </Box>
+        </ParallaxLayer>
+      </Parallax>
+    </Box>
   );
 };
 
