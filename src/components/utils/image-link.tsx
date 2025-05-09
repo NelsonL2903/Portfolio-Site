@@ -7,7 +7,7 @@ type ImageLinkProps = {
   alt: string;
 };
 
-export const ImageLink = (props: ImageLinkProps) => {
+export const ImageLink = (props: ImageLinkProps): JSX.Element => {
   const { src, url, alt } = props;
   const imageDimensions = '70px';
 

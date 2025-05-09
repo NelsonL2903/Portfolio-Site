@@ -15,17 +15,17 @@ jobs.forEach((job, index) => {
   marks.push({ value: markBaseValue * index, label: job.start });
 });
 
-const TimelinePage = () => {
+const TimelinePage = (): JSX.Element => {
   const [sliderValue, setSliderValue] = useState(100);
   const [pageIndex, setPageIndex] = useState(100);
   const [disabledPrevious, setDisabledPrevious] = useState(false);
   const [disabledNext, setDisabledNext] = useState(true);
 
-  const valueLabelFormat = (value: number) => {
+  const valueLabelFormat = (value: number): string => {
     return marks[marks.findIndex((mark) => mark.value === value)]?.label;
   };
 
-  const handleSliderChange = (value: number) => {
+  const handleSliderChange = (value: number): void => {
     setSliderValue(value);
 
     if (marks.some((mark) => mark.value === value)) {
@@ -35,14 +35,14 @@ const TimelinePage = () => {
     }
   };
 
-  const handleSliderChangeCommit = (value: number) => {
+  const handleSliderChangeCommit = (value: number): void => {
     setSliderValue(getClosest(value));
     setPageIndex(getClosest(value));
     const index = marks.findIndex((mark) => mark.value === getClosest(value));
     setDisabled(index);
   };
 
-  const setDisabled = (index: number) => {
+  const setDisabled = (index: number): void => {
     if (index === 0) {
       setDisabledPrevious(true);
       setDisabledNext(false);
@@ -55,7 +55,7 @@ const TimelinePage = () => {
     }
   };
 
-  const getClosest = (value: number) => {
+  const getClosest = (value: number): number => {
     let closest = 0;
 
     marks.forEach((mark) => {
@@ -68,14 +68,14 @@ const TimelinePage = () => {
     return closest;
   };
 
-  const handlePrevious = () => {
+  const handlePrevious = (): void => {
     const index = marks.findIndex((mark) => mark.value === sliderValue);
     setSliderValue(marks[index - 1].value);
     setPageIndex(marks[index - 1].value);
     setDisabled(index - 1);
   };
 
-  const handleNext = () => {
+  const handleNext = (): void => {
     const index = marks.findIndex((mark) => mark.value === sliderValue);
     setSliderValue(marks[index + 1].value);
     setPageIndex(marks[index + 1].value);

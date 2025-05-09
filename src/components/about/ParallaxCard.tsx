@@ -1,5 +1,5 @@
 import { ParallaxLayer } from '@react-spring/parallax';
-import { CARD_HEIGHT_FACTOR, CARD_NUM, CARD_WIDTH } from './constants';
+import { CARD_HEIGHT_FACTOR, CARD_NUM } from './constants';
 
 const ParallaxCard = ({
   offset,

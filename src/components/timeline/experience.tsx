@@ -13,7 +13,7 @@ type jobInfo = {
   achievements: string[];
 };
 
-const Experience = ({ jobInfo }: { jobInfo: jobInfo }) => {
+const Experience = ({ jobInfo }: { jobInfo: jobInfo }): JSX.Element => {
   const job = jobInfo;
 
   return (

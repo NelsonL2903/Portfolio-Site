@@ -5,11 +5,11 @@ import Grid from '@mui/material/Grid';
 import { useRouter, usePathname } from 'next/navigation';
 import React from 'react';
 
-const NavigationBar = () => {
+const NavigationBar = (): JSX.Element => {
   const router = useRouter();
   const pathname = usePathname();
 
-  const NavigationItem = ({ text, route }: { text: string; route: string }) => (
+  const NavigationItem = ({ text, route }: { text: string; route: string }): JSX.Element => (
     <Grid display="flex" justifyContent="center" alignItems="center" size="grow">
       <Button type="button" onClick={() => router.push(route)}>
         <Typography variant="h5" color={pathname == route ? '' : 'white'}>

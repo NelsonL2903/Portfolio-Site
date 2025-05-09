@@ -3,7 +3,7 @@ import Portrait from '@/assets/portrait.jpg';
 import Itch from '@/assets/itchio.jpg';
 import ImageLink from '../utils/image-link';
 
-const Profile = () => {
+const Profile = (): JSX.Element => {
   return (
     <div className="fade-slide">
       <Stack direction="row" justifyContent="space-around" alignItems="center">

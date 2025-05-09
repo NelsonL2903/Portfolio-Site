@@ -16,7 +16,7 @@ const portraitStyle = {
   border: 'solid 8px #121212'
 };
 
-const Interests = () => {
+const Interests = (): JSX.Element => {
   return (
     <Grid container justifyContent="space-around" alignItems="center" height="100%">
       <Grid

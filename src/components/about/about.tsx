@@ -15,7 +15,7 @@ import Profile from './profile';
 
 const ARROW_BOX_HEIGHT = '25%';
 
-const About = () => {
+const About = (): JSX.Element => {
   const parallax = useRef<IParallax>(null!);
   const [currentPage, setCurrentPage] = useState(0);
 
