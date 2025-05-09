@@ -36,7 +36,7 @@ const Interests = (): JSX.Element => {
       </Grid>
       <Grid container justifyContent="center" alignItems="center" size={{ xs: 6 }}>
         <img
-          src="/assets/beach-portraitjpg."
+          src="/assets/beach-portrait.jpg"
           alt="portrait"
           width="50%"
           height="auto"
