@@ -18,16 +18,16 @@ export const SkillGrid = () => {
     <>
       {Object.keys(groupedSkills).map((category) => (
         <Fragment key={category}>
-          <Typography variant='h6' color='common.white' marginTop='10px'>
+          <Typography variant="h6" color="common.white" marginTop="10px">
             {Capitalize(category)}:
           </Typography>
           <Grid
             container
-            direction='row'
-            justifyContent='center'
-            alignItems='center'
-            width='100%'
-            marginTop='10px'
+            direction="row"
+            justifyContent="center"
+            alignItems="center"
+            width="100%"
+            marginTop="10px"
             size={{ xs: 6 }}
           >
             {groupedSkills[category].map((skill) => (
@@ -36,8 +36,8 @@ export const SkillGrid = () => {
                 alt={skill.name}
                 key={skill.name}
                 style={{ margin: '3px' }}
-                width='auto'
-                height='30'
+                width="auto"
+                height="30"
               />
             ))}
           </Grid>

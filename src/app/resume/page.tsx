@@ -3,8 +3,8 @@ import React from 'react';
 
 const ResumePage = () => {
   return (
-    <Box height='100vh'>
-      <iframe title='Resume' src='/assets/portfolio_resume.pdf' width='100%' height='100%' />
+    <Box height="100vh">
+      <iframe title="Resume" src="/assets/portfolio_resume.pdf" width="100%" height="100%" />
     </Box>
   );
 };

@@ -12,7 +12,7 @@ export const ImageLink = (props: ImageLinkProps) => {
   const imageDimensions = '70px';
 
   return (
-    <Link href={url} target='_blank' rel='noopener noreferrer' style={{ margin: '3px' }}>
+    <Link href={url} target="_blank" rel="noopener noreferrer" style={{ margin: '3px' }}>
       <img
         src={src}
         alt={alt}

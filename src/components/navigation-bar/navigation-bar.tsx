@@ -10,9 +10,9 @@ const NavigationBar = () => {
   const pathname = usePathname();
 
   const NavigationItem = ({ text, route }: { text: string; route: string }) => (
-    <Grid display='flex' justifyContent='center' alignItems='center' size='grow'>
-      <Button type='button' onClick={() => router.push(route)}>
-        <Typography variant='h5' color={pathname == route ? '' : 'white'}>
+    <Grid display="flex" justifyContent="center" alignItems="center" size="grow">
+      <Button type="button" onClick={() => router.push(route)}>
+        <Typography variant="h5" color={pathname == route ? '' : 'white'}>
           {text}
         </Typography>
       </Button>
@@ -20,10 +20,16 @@ const NavigationBar = () => {
   );
 
   return (
-    <Grid direction='row' container component='header' marginBottom='30px' style={{ backgroundColor: '#252525' }}>
-      <NavigationItem text='About' route='/' />
-      <NavigationItem text='Experience' route='/timeline' />
-      <NavigationItem text='Resume' route='/resume' />
+    <Grid
+      direction="row"
+      container
+      component="header"
+      marginBottom="30px"
+      style={{ backgroundColor: '#252525' }}
+    >
+      <NavigationItem text="About" route="/" />
+      <NavigationItem text="Experience" route="/timeline" />
+      <NavigationItem text="Resume" route="/resume" />
     </Grid>
   );
 };

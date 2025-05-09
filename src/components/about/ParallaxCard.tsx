@@ -1,7 +1,13 @@
 import { ParallaxLayer } from '@react-spring/parallax';
 import { CARD_HEIGHT_FACTOR, CARD_NUM, CARD_WIDTH } from './constants';
 
-const ParallaxCard = ({ offset, component }: { offset: number; component: JSX.Element }): JSX.Element => {
+const ParallaxCard = ({
+  offset,
+  component
+}: {
+  offset: number;
+  component: JSX.Element;
+}): JSX.Element => {
   const accentColour = '#252525';
   const cardStyle = {
     backgroundColor: accentColour,
