@@ -1,7 +1,7 @@
-import Profile from '@/components/about/profile';
+import About from '@/components/about/about';
 
 const HomePage = (): JSX.Element => {
-  return <Profile />;
+  return <About />;
 };
 
 export default HomePage;

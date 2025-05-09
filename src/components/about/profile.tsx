@@ -1,67 +1,55 @@
-'use client';
-
-import { Parallax, ParallaxLayer } from '@react-spring/parallax';
-import type { IParallax } from '@react-spring/parallax';
-import { useRef, useState } from 'react';
-import ProfileInfo from './profile-info';
-import Interests from './interests';
-import Skills from './skills';
-import ArrowUpward from '@mui/icons-material/ArrowUpward';
-import ArrowDownward from '@mui/icons-material/ArrowDownward';
-import ParallaxCard from './ParallaxCard';
-import { CARD_HEIGHT, CARD_NUM, CARD_WIDTH } from './constants';
-import { Box, Grid } from '@mui/material';
-import { decrementPage, incrementPage } from './helpers';
+import { Grid, Stack, Typography } from '@mui/material';
+import Portrait from '@/assets/portrait.jpg';
+import Itch from '@/assets/itchio.jpg';
+import ImageLink from '../utils/image-link';
 
 const Profile = () => {
-  const parallax = useRef<IParallax>(null!);
-  const [currentPage, setCurrentPage] = useState(0);
-
   return (
-    <Box
-      sx={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        height: '100vh',
-        width: '100vw'
-      }}
-    >
-      <Parallax ref={parallax} pages={CARD_NUM} style={{ width: CARD_WIDTH, overflow: 'hidden' }}>
-        <ParallaxLayer offset={0} speed={0} factor={CARD_NUM} />
-        <ParallaxCard offset={0} component={<ProfileInfo />} />
-        <ParallaxCard offset={1} component={<Skills />} />
-        <ParallaxCard offset={2} component={<Interests />} />
-        <ParallaxLayer offset={0} speed={-1}>
-          <Box className="flash" style={{ height: CARD_HEIGHT }}>
-            <Grid
-              style={{ height: '50%', padding: '20px' }}
-              sx={{
-                display: 'flex',
-                justifyContent: 'flex-end',
-                alignItems: 'flex-start',
-                visibility: currentPage === 0 ? 'hidden' : 'visible'
-              }}
-              onClick={() => decrementPage(currentPage, setCurrentPage, parallax)}
-            >
-              <ArrowUpward style={{ color: 'white', fontSize: '48px' }} />
-            </Grid>
-            <Grid
-              style={{ height: '50%', padding: '20px' }}
-              sx={{
-                display: 'flex',
-                justifyContent: 'flex-end',
-                alignItems: 'flex-end',
-                visibility: currentPage === CARD_NUM - 1 ? 'hidden' : 'visible'
-              }}
-              onClick={() => incrementPage(currentPage, setCurrentPage, parallax)}
-            >
-              <ArrowDownward style={{ color: 'white', fontSize: '48px' }} />
-            </Grid>
-          </Box>
-        </ParallaxLayer>
-      </Parallax>
-    </Box>
+    <div className="fade-slide">
+      <Stack direction="row" justifyContent="space-around" alignItems="center">
+        <Grid container justifyContent="center" alignItems="center" width="38%">
+          <img
+            src={Portrait.src}
+            alt="portrait"
+            width="100%"
+            height="auto"
+            style={{ borderRadius: '20px', border: 'solid 8px #121212' }}
+          />
+        </Grid>
+        <Grid container direction="column" justifyContent="center" alignItems="left">
+          <Typography variant="h1" color="common.white" fontFamily="monaco">
+            Nelson Loop
+          </Typography>
+          <Typography variant="h4" color="common.white" fontFamily="monaco">
+            Computer Engineering - University of Waterloo
+          </Typography>
+          <Grid
+            container
+            direction="row"
+            justifyContent="left"
+            alignItems="center"
+            size={{ xs: 6 }}
+            height="100%"
+            marginTop="25px"
+          >
+            <Typography variant="h4" color="common.white" marginRight="8px" fontFamily="monaco">
+              Links:
+            </Typography>
+            <ImageLink
+              src="https://skillicons.dev/icons?i=linkedin"
+              url="https://www.linkedin.com/in/nelsonloop/"
+              alt="LinkedIn"
+            />
+            <ImageLink
+              src="https://skillicons.dev/icons?i=github"
+              url="https://github.com/NelsonL2903"
+              alt="Github"
+            />
+            <ImageLink src={Itch.src} url="https://nelsonl2903.itch.io/" alt="Itch" />
+          </Grid>
+        </Grid>
+      </Stack>
+    </div>
   );
 };
 
