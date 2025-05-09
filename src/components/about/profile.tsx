@@ -31,6 +31,7 @@ const Profile = () => {
             size={{ xs: 6 }}
             height="100%"
             marginTop="25px"
+            sx={{ pointerEvents: 'auto' }}
           >
             <Typography variant="h4" color="common.white" marginRight="8px" fontFamily="monaco">
               Links:

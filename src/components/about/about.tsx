@@ -13,6 +13,8 @@ import { Box, Grid } from '@mui/material';
 import { decrementPage, incrementPage } from './helpers';
 import Profile from './profile';
 
+const ARROW_BOX_HEIGHT = '25%';
+
 const About = () => {
   const parallax = useRef<IParallax>(null!);
   const [currentPage, setCurrentPage] = useState(0);
@@ -24,7 +26,8 @@ const About = () => {
         justifyContent: 'center',
         alignItems: 'center',
         height: '100vh',
-        width: '100vw'
+        width: '100vw',
+        pointerEvents: 'none'
       }}
     >
       <Parallax ref={parallax} pages={CARD_NUM} style={{ width: CARD_WIDTH, overflow: 'hidden' }}>
@@ -33,32 +36,43 @@ const About = () => {
         <ParallaxCard offset={1} component={<Skills />} />
         <ParallaxCard offset={2} component={<Interests />} />
         <ParallaxLayer offset={0} speed={-1}>
-          <Box className="flash" style={{ height: CARD_HEIGHT }}>
+          <Grid
+            className="flash"
+            container
+            display="flex"
+            direction="column"
+            justifyContent="space-between"
+            height={CARD_HEIGHT}
+          >
             <Grid
-              style={{ height: '50%', padding: '20px' }}
+              height={ARROW_BOX_HEIGHT}
+              padding="20px"
+              display="flex"
+              justifyContent="flex-end"
+              alignItems="flex-start"
               sx={{
-                display: 'flex',
-                justifyContent: 'flex-end',
-                alignItems: 'flex-start',
-                visibility: currentPage === 0 ? 'hidden' : 'visible'
+                visibility: currentPage === 0 ? 'hidden' : 'visible',
+                pointerEvents: 'auto'
               }}
               onClick={() => decrementPage(currentPage, setCurrentPage, parallax)}
             >
               <ArrowUpward style={{ color: 'white', fontSize: '48px' }} />
             </Grid>
             <Grid
-              style={{ height: '50%', padding: '20px' }}
+              height={ARROW_BOX_HEIGHT}
+              padding="20px"
+              display="flex"
+              justifyContent="flex-end"
+              alignItems="flex-end"
               sx={{
-                display: 'flex',
-                justifyContent: 'flex-end',
-                alignItems: 'flex-end',
-                visibility: currentPage === CARD_NUM - 1 ? 'hidden' : 'visible'
+                visibility: currentPage === CARD_NUM - 1 ? 'hidden' : 'visible',
+                pointerEvents: 'auto'
               }}
               onClick={() => incrementPage(currentPage, setCurrentPage, parallax)}
             >
               <ArrowDownward style={{ color: 'white', fontSize: '48px' }} />
             </Grid>
-          </Box>
+          </Grid>
         </ParallaxLayer>
       </Parallax>
     </Box>
