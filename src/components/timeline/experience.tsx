@@ -74,10 +74,7 @@ const Experience = ({ jobInfo }: { jobInfo: jobInfo }) => {
                 <ListItemIcon>
                   <ArrowForwardIcon fontSize="large" style={{ color: 'white' }} />
                 </ListItemIcon>
-                <ListItemText
-                  primaryTypographyProps={{ fontSize: '18px', color: 'white' }}
-                  primary={achievement}
-                />
+                <ListItemText sx={{ fontSize: '18px', color: 'white' }} primary={achievement} />
               </ListItem>
             ))}
           </List>

@@ -83,10 +83,10 @@ const TimelinePage = () => {
   };
 
   return (
-    <Box display='flex' flexDirection='column' justifyContent='space-between' height='90vh'>
-      <Grid container direction='row' justifyContent='flex-start' alignItems='center' size='grow'>
+    <Box display="flex" flexDirection="column" height="90vh">
+      <Grid container direction="row" justifyContent="flex-start" height="85%" overflow="auto">
         <Slider
-          aria-label='Restricted values'
+          aria-label="Restricted values"
           value={sliderValue}
           valueLabelFormat={valueLabelFormat}
           step={1}
@@ -110,12 +110,21 @@ const TimelinePage = () => {
             }
           }}
         />
-        {jobs.map((job, index) => pageIndex === marks[index].value && <Experience jobInfo={job} key={job.title} />)}
+        {jobs.map(
+          (job, index) =>
+            pageIndex === marks[index].value && <Experience jobInfo={job} key={job.title} />
+        )}
       </Grid>
-      <Grid container direction='row' justifyContent='center' alignItems='flex-end' size='grow' component='footer'>
+      <Grid
+        container
+        direction="row"
+        justifyContent="center"
+        alignItems="flex-start"
+        component="footer"
+      >
         <Button
-          variant='contained'
-          size='large'
+          variant="contained"
+          size="large"
           startIcon={<NavigateBefore />}
           style={{ marginRight: '30px' }}
           disabled={disabledPrevious}
@@ -126,8 +135,8 @@ const TimelinePage = () => {
           Previous
         </Button>
         <Button
-          variant='contained'
-          size='large'
+          variant="contained"
+          size="large"
           endIcon={<NavigateNext />}
           disabled={disabledNext}
           onClick={() => {
