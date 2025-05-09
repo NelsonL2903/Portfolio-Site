@@ -1,6 +1,4 @@
 import { Grid, Stack, Typography } from '@mui/material';
-import Portrait from '@/assets/portrait.jpg';
-import Itch from '@/assets/itchio.jpg';
 import ImageLink from '../utils/image-link';
 
 const Profile = (): JSX.Element => {
@@ -9,7 +7,7 @@ const Profile = (): JSX.Element => {
       <Stack direction="row" justifyContent="space-around" alignItems="center">
         <Grid container justifyContent="center" alignItems="center" width="38%">
           <img
-            src={Portrait.src}
+            src="/assets/portrait.jpg"
             alt="portrait"
             width="100%"
             height="auto"
@@ -46,7 +44,7 @@ const Profile = (): JSX.Element => {
               url="https://github.com/NelsonL2903"
               alt="Github"
             />
-            <ImageLink src={Itch.src} url="https://nelsonl2903.itch.io/" alt="Itch" />
+            <ImageLink src="/assets/itchio.jpg" url="https://nelsonl2903.itch.io/" alt="Itch" />
           </Grid>
         </Grid>
       </Stack>

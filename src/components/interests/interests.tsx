@@ -1,6 +1,5 @@
 import { Typography, Grid } from '@mui/material';
 import { ReactTyped } from 'react-typed';
-import Portrait from '@/assets/beach-portrait.jpg';
 
 const typedStrings = [
   'programming.',
@@ -36,7 +35,13 @@ const Interests = (): JSX.Element => {
         </Grid>
       </Grid>
       <Grid container justifyContent="center" alignItems="center" size={{ xs: 6 }}>
-        <img src={Portrait.src} alt="portrait" width="50%" height="auto" style={portraitStyle} />
+        <img
+          src="/assets/beach-portraitjpg."
+          alt="portrait"
+          width="50%"
+          height="auto"
+          style={portraitStyle}
+        />
       </Grid>
     </Grid>
   );
