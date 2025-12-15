@@ -1,6 +1,7 @@
 import swapLogo from '@/assets/swap-logo.png';
 import tuqLogo from '@/assets/tuq-logo.png';
 import onOrderLogo from '@/assets/onorder-logo.png';
+import magnetLogo from '@/assets/magnet-logo.png';
 
 export const jobs = [
   {
@@ -53,6 +54,30 @@ export const jobs = [
       'Leveraged TypeScript and Material-UI and integrated responsive web design principles to seamlessly translate Figma designs into a Next.js application, ensuring optimal functionality across all screen sizes and enhancing overall user experience.',
       'Conducted research on OpenAI Assistants and Stripe Connect, broke down implementation requirements and planned out project tickets.',
       'Employed Puppeteer to systematically extract product details from diverse websites for over 10,000 products, facilitating comprehensive data collection.'
+    ]
+  },
+  {
+    name: 'Magnet Forensics',
+    title: 'Software Developer Co-op',
+    start: 'January 2025',
+    end: 'April 2025',
+    logo: magnetLogo,
+    achievements: [
+      'Developed and modified RESTful APIs in C# and Clojure, improving backend functionality and reliability',
+      "Implemented new user-requested features using TypeScript and Material-UI, expanding the product's functionality and enhancing the user experience",
+      'Tested new features, identifying and verifying edge cases to ensure correctness, quality, and prevent potential bugs before release'
+    ]
+  },
+  {
+    name: 'Magnet Forensics',
+    title: 'Software Developer Co-op',
+    start: 'September 2025',
+    end: 'December 2025',
+    logo: magnetLogo,
+    achievements: [
+      'Investigated ~10 customer-reported production issues during a 2-week support rotation, analyzing logs, debugging services, and coordinating with the support team',
+      'Led spike planning and managed an epic end-to-end, analyzing requirements, creating actionable tickets, and advising teammates on implementation questions',
+      'Gained hands-on experience with Jenkins pipelines by diagnosing and resolving issues using Clojure, maintaining reliable continuous integration and deployment'
     ]
   }
 ];

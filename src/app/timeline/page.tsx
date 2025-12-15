@@ -2,24 +2,26 @@
 
 import { Box, Button, Slider } from '@mui/material';
 import Grid from '@mui/material/Grid';
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { NavigateBefore, NavigateNext } from '@mui/icons-material';
 import Experience from '@/components/timeline/experience';
 import { jobs } from '@/components/utils/jobs_info';
 
 type marks = { value: number; label: string }[];
-const marks: marks = [];
-const markBaseValue = 100 / (jobs.length - 1);
-
-jobs.forEach((job, index) => {
-  marks.push({ value: markBaseValue * index, label: job.start });
-});
 
 const TimelinePage = (): JSX.Element => {
-  const [sliderValue, setSliderValue] = useState(100);
-  const [pageIndex, setPageIndex] = useState(100);
-  const [disabledPrevious, setDisabledPrevious] = useState(false);
-  const [disabledNext, setDisabledNext] = useState(true);
+  const marks: marks = [];
+  const markBaseValue = 100 / (jobs.length - 1);
+  const [sliderValue, setSliderValue] = useState(0);
+
+  const sliderIndex = useMemo(
+    () => Math.round(sliderValue / markBaseValue),
+    [sliderValue, markBaseValue]
+  );
+
+  jobs.forEach((job, index) => {
+    marks.push({ value: markBaseValue * index, label: job.start });
+  });
 
   const valueLabelFormat = (value: number): string => {
     return marks[marks.findIndex((mark) => mark.value === value)]?.label;
@@ -27,59 +29,36 @@ const TimelinePage = (): JSX.Element => {
 
   const handleSliderChange = (value: number): void => {
     setSliderValue(value);
-
-    if (marks.some((mark) => mark.value === value)) {
-      setPageIndex(value);
-      const index = marks.findIndex((mark) => mark.value === value);
-      setDisabled(index);
-    }
   };
 
   const handleSliderChangeCommit = (value: number): void => {
-    setSliderValue(getClosest(value));
-    setPageIndex(getClosest(value));
-    const index = marks.findIndex((mark) => mark.value === getClosest(value));
-    setDisabled(index);
+    const closestIndex = getClosestIndex(value);
+    setSliderValue(closestIndex * markBaseValue);
   };
 
-  const setDisabled = (index: number): void => {
-    if (index === 0) {
-      setDisabledPrevious(true);
-      setDisabledNext(false);
-    } else if (index === marks.length - 1) {
-      setDisabledPrevious(false);
-      setDisabledNext(true);
-    } else {
-      setDisabledPrevious(false);
-      setDisabledNext(false);
-    }
-  };
+  const getClosestIndex = (value: number): number => {
+    let closestValue = 0;
+    let closestIndex = 0;
 
-  const getClosest = (value: number): number => {
-    let closest = 0;
-
-    marks.forEach((mark) => {
+    marks.forEach((mark, index) => {
       const diff = Math.abs(value - mark.value);
 
-      if (diff < Math.abs(value - closest)) {
-        closest = mark.value;
+      if (diff < Math.abs(value - closestValue)) {
+        closestValue = mark.value;
+        closestIndex = index;
       }
     });
-    return closest;
+    return closestIndex;
   };
 
   const handlePrevious = (): void => {
-    const index = marks.findIndex((mark) => mark.value === sliderValue);
-    setSliderValue(marks[index - 1].value);
-    setPageIndex(marks[index - 1].value);
-    setDisabled(index - 1);
+    const newIndex = sliderIndex - 1;
+    setSliderValue(newIndex * markBaseValue);
   };
 
   const handleNext = (): void => {
-    const index = marks.findIndex((mark) => mark.value === sliderValue);
-    setSliderValue(marks[index + 1].value);
-    setPageIndex(marks[index + 1].value);
-    setDisabled(index + 1);
+    const newIndex = sliderIndex + 1;
+    setSliderValue(newIndex * markBaseValue);
   };
 
   return (
@@ -97,7 +76,7 @@ const TimelinePage = (): JSX.Element => {
             handleSliderChange(Number(target.value));
           }}
           onChangeCommitted={(_, value) => {
-            handleSliderChangeCommit(Number(value));
+            handleSliderChangeCommit(value);
           }}
           style={{
             marginTop: '15px',
@@ -112,7 +91,7 @@ const TimelinePage = (): JSX.Element => {
         />
         {jobs.map(
           (job, index) =>
-            pageIndex === marks[index].value && <Experience jobInfo={job} key={job.title} />
+            sliderIndex === index && <Experience key={job.name + ' ' + job.start} jobInfo={job} />
         )}
       </Grid>
       <Grid
@@ -127,7 +106,7 @@ const TimelinePage = (): JSX.Element => {
           size="large"
           startIcon={<NavigateBefore />}
           style={{ marginRight: '30px' }}
-          disabled={disabledPrevious}
+          disabled={sliderIndex === 0}
           onClick={() => {
             handlePrevious();
           }}
@@ -138,7 +117,7 @@ const TimelinePage = (): JSX.Element => {
           variant="contained"
           size="large"
           endIcon={<NavigateNext />}
-          disabled={disabledNext}
+          disabled={sliderIndex === jobs.length - 1}
           onClick={() => {
             handleNext();
           }}
