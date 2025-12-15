@@ -1,97 +1,95 @@
 'use client';
 
-import { Box, Button, Slider } from '@mui/material';
-import Grid from '@mui/material/Grid';
-import { useMemo, useState } from 'react';
+import { useState, useCallback } from 'react';
+import { Box, Button, Grid, Slider } from '@mui/material';
 import { NavigateBefore, NavigateNext } from '@mui/icons-material';
 import Experience from '@/components/timeline/experience';
 import { jobs } from '@/components/utils/jobs_info';
 
-type marks = { value: number; label: string }[];
+type Mark = { value: number; label: string };
+
+const jobsExist = jobs.length > 0;
+const markBaseValue = 100 / (jobs.length - 1);
+
+const marks: Mark[] = jobs.map((job, index) => ({
+  value: markBaseValue * index,
+  label: job.start
+}));
 
 const TimelinePage = (): JSX.Element => {
-  const marks: marks = [];
-  const markBaseValue = 100 / (jobs.length - 1);
   const [sliderValue, setSliderValue] = useState(0);
 
-  const sliderIndex = useMemo(
-    () => Math.round(sliderValue / markBaseValue),
-    [sliderValue, markBaseValue]
+  const sliderIndex = Math.min(
+    Math.max(Math.round(sliderValue / markBaseValue), 0),
+    jobs.length - 1
   );
 
-  jobs.forEach((job, index) => {
-    marks.push({ value: markBaseValue * index, label: job.start });
-  });
-
-  const valueLabelFormat = (value: number): string => {
-    return marks[marks.findIndex((mark) => mark.value === value)]?.label;
-  };
-
-  const handleSliderChange = (value: number): void => {
-    setSliderValue(value);
-  };
-
   const handleSliderChangeCommit = (value: number): void => {
-    const closestIndex = getClosestIndex(value);
-    setSliderValue(closestIndex * markBaseValue);
+    const closestValue = getClosestValue(value);
+    setSliderValue(closestValue);
   };
 
-  const getClosestIndex = (value: number): number => {
+  const getClosestValue = (value: number): number => {
     let closestValue = 0;
-    let closestIndex = 0;
 
-    marks.forEach((mark, index) => {
+    marks.forEach((mark) => {
       const diff = Math.abs(value - mark.value);
 
       if (diff < Math.abs(value - closestValue)) {
         closestValue = mark.value;
-        closestIndex = index;
       }
     });
-    return closestIndex;
+    return closestValue;
   };
 
-  const handlePrevious = (): void => {
-    const newIndex = sliderIndex - 1;
-    setSliderValue(newIndex * markBaseValue);
-  };
+  const handlePrevious = useCallback((): void => {
+    setSliderValue((previous) => {
+      const currentIndex = Math.round(previous / markBaseValue);
+      const newIndex = Math.max(0, currentIndex - 1);
+      return newIndex * markBaseValue;
+    });
+  }, []);
 
-  const handleNext = (): void => {
-    const newIndex = sliderIndex + 1;
-    setSliderValue(newIndex * markBaseValue);
-  };
+  const handleNext = useCallback((): void => {
+    setSliderValue((previous) => {
+      const currentIndex = Math.round(previous / markBaseValue);
+      const newIndex = Math.min(jobs.length - 1, currentIndex + 1);
+      return newIndex * markBaseValue;
+    });
+  }, []);
+
+  const currentJob = jobsExist ? jobs[sliderIndex] : undefined;
 
   return (
     <Box display="flex" flexDirection="column" height="90vh">
       <Grid container direction="row" justifyContent="flex-start" height="85%" overflow="auto">
-        <Slider
-          aria-label="Restricted values"
-          value={sliderValue}
-          valueLabelFormat={valueLabelFormat}
-          step={1}
-          marks={marks}
-          classes={{ markLabel: 'color=white' }}
-          onChange={(event) => {
-            const target = event.target as HTMLInputElement;
-            handleSliderChange(Number(target.value));
-          }}
-          onChangeCommitted={(_, value) => {
-            handleSliderChangeCommit(value);
-          }}
-          style={{
-            marginTop: '15px',
-            marginLeft: '50px',
-            marginRight: '50px'
-          }}
-          sx={{
-            '& .MuiSlider-markLabel': {
-              color: 'white'
-            }
-          }}
-        />
-        {jobs.map(
-          (job, index) =>
-            sliderIndex === index && <Experience key={job.name + ' ' + job.start} jobInfo={job} />
+        {jobsExist ? (
+          <>
+            <Slider
+              aria-label="Timeline"
+              value={sliderValue}
+              step={1}
+              marks={marks}
+              onChange={(_, value) => {
+                setSliderValue(Number(value));
+              }}
+              onChangeCommitted={(_, value) => {
+                handleSliderChangeCommit(value);
+              }}
+              sx={{
+                'mt': 2,
+                'mx': 6,
+                '& .MuiSlider-markLabel': {
+                  color: 'white'
+                }
+              }}
+            />
+            {currentJob && <Experience jobInfo={currentJob} />}
+          </>
+        ) : (
+          <Box p={3} color="white">
+            No jobs to display.
+          </Box>
         )}
       </Grid>
       <Grid
@@ -105,11 +103,9 @@ const TimelinePage = (): JSX.Element => {
           variant="contained"
           size="large"
           startIcon={<NavigateBefore />}
-          style={{ marginRight: '30px' }}
-          disabled={sliderIndex === 0}
-          onClick={() => {
-            handlePrevious();
-          }}
+          sx={{ mr: 4 }}
+          disabled={!jobsExist || sliderIndex === 0}
+          onClick={handlePrevious}
         >
           Previous
         </Button>
@@ -117,10 +113,8 @@ const TimelinePage = (): JSX.Element => {
           variant="contained"
           size="large"
           endIcon={<NavigateNext />}
-          disabled={sliderIndex === jobs.length - 1}
-          onClick={() => {
-            handleNext();
-          }}
+          disabled={!jobsExist || sliderIndex === jobs.length - 1}
+          onClick={handleNext}
         >
           Next
         </Button>
