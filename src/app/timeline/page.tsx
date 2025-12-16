@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useCallback } from 'react';
-import { Box, Button, Grid, Slider } from '@mui/material';
+import { Box, Button, Grid, Slider, Typography } from '@mui/material';
 import { NavigateBefore, NavigateNext } from '@mui/icons-material';
 import Experience from '@/components/timeline/experience';
 import { jobs } from '@/components/utils/jobs_info';
@@ -61,10 +61,10 @@ const TimelinePage = (): JSX.Element => {
   const currentJob = jobsExist ? jobs[sliderIndex] : undefined;
 
   return (
-    <Box display="flex" flexDirection="column" height="90vh">
-      <Grid container direction="row" justifyContent="flex-start" height="85%" overflow="auto">
-        {jobsExist ? (
-          <>
+    <Box display="flex" flexDirection="column" p={2}>
+      {jobsExist ? (
+        <>
+          <Box paddingX={8}>
             <Slider
               aria-label="Timeline"
               value={sliderValue}
@@ -77,48 +77,46 @@ const TimelinePage = (): JSX.Element => {
                 handleSliderChangeCommit(value);
               }}
               sx={{
-                'mt': 2,
-                'mx': 6,
                 '& .MuiSlider-markLabel': {
                   color: 'white'
                 }
               }}
             />
-            {currentJob && <Experience jobInfo={currentJob} />}
-          </>
-        ) : (
-          <Box p={3} color="white">
-            No jobs to display.
           </Box>
-        )}
-      </Grid>
-      <Grid
-        container
-        direction="row"
-        justifyContent="center"
-        alignItems="flex-start"
-        component="footer"
-      >
-        <Button
-          variant="contained"
-          size="large"
-          startIcon={<NavigateBefore />}
-          sx={{ mr: 4 }}
-          disabled={!jobsExist || sliderIndex === 0}
-          onClick={handlePrevious}
-        >
-          Previous
-        </Button>
-        <Button
-          variant="contained"
-          size="large"
-          endIcon={<NavigateNext />}
-          disabled={!jobsExist || sliderIndex === jobs.length - 1}
-          onClick={handleNext}
-        >
-          Next
-        </Button>
-      </Grid>
+          {currentJob && <Experience jobInfo={currentJob} />}
+          <Grid
+            container
+            direction="row"
+            justifyContent="center"
+            alignItems="flex-start"
+            component="footer"
+          >
+            <Button
+              variant="contained"
+              size="large"
+              startIcon={<NavigateBefore />}
+              sx={{ mr: 4 }}
+              disabled={!jobsExist || sliderIndex === 0}
+              onClick={handlePrevious}
+            >
+              Previous
+            </Button>
+            <Button
+              variant="contained"
+              size="large"
+              endIcon={<NavigateNext />}
+              disabled={!jobsExist || sliderIndex === jobs.length - 1}
+              onClick={handleNext}
+            >
+              Next
+            </Button>
+          </Grid>
+        </>
+      ) : (
+        <Box p={3} textAlign="center">
+          <Typography variant="h5">No jobs to display.</Typography>
+        </Box>
+      )}
     </Box>
   );
 };

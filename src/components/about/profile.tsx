@@ -44,7 +44,6 @@ const Profile = (): JSX.Element => {
               url="https://github.com/NelsonL2903"
               alt="Github"
             />
-            <ImageLink src="/assets/itchio.jpg" url="https://nelsonl2903.itch.io/" alt="Itch" />
           </Grid>
         </Grid>
       </Stack>

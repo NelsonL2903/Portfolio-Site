@@ -26,8 +26,7 @@ export const jobs = [
       'Utilized Python, ROS, and Foxglove to develop code for real-time data tracking, reporting, and visualization of autonomous robots.',
       'Retrieved and monitored real-time safety diagnostics of a motor MCU from a CAN bus in Python, to enhance safety measures in robot operations.',
       'Applied object-oriented principles to optimize class efficiency and code architecture.',
-      'Collaborated closely with management to prioritize project needs, and define clear ticket criteria.',
-      'Contributed effectively within a Scrum framework, actively engaging in bi-daily standup meetings and sprint-focused development cycles, and effectively utilized ClickUp for ticket management and organization.'
+      'Collaborated closely with management to prioritize project needs, and define clear ticket criteria.'
     ]
   },
   {
@@ -63,9 +62,9 @@ export const jobs = [
     end: 'April 2025',
     logo: magnetLogo,
     achievements: [
-      'Developed and modified RESTful APIs in C# and Clojure, improving backend functionality and reliability',
-      "Implemented new user-requested features using TypeScript and Material-UI, expanding the product's functionality and enhancing the user experience",
-      'Tested new features, identifying and verifying edge cases to ensure correctness, quality, and prevent potential bugs before release'
+      'Developed and modified RESTful APIs in C# and Clojure, improving backend functionality and reliability.',
+      "Implemented new user-requested features using TypeScript and Material-UI, expanding the product's functionality and enhancing the user experience.",
+      'Tested new features, identifying and verifying edge cases to ensure correctness, quality, and prevent potential bugs before release.'
     ]
   },
   {
@@ -75,9 +74,9 @@ export const jobs = [
     end: 'December 2025',
     logo: magnetLogo,
     achievements: [
-      'Investigated ~10 customer-reported production issues during a 2-week support rotation, analyzing logs, debugging services, and coordinating with the support team',
-      'Led spike planning and managed an epic end-to-end, analyzing requirements, creating actionable tickets, and advising teammates on implementation questions',
-      'Gained hands-on experience with Jenkins pipelines by diagnosing and resolving issues using Clojure, maintaining reliable continuous integration and deployment'
+      'Investigated ~10 customer-reported production issues during a 2-week support rotation, analyzing logs, debugging services, and coordinating with the support team.',
+      'Led spike planning and managed an epic end-to-end, analyzing requirements, creating actionable tickets, and advising teammates on implementation questions.',
+      'Gained hands-on experience with Jenkins pipelines by diagnosing and resolving issues using Clojure, maintaining reliable continuous integration and deployment.'
     ]
   }
 ];
