@@ -1,5 +1,7 @@
 import type { Skill } from './types';
 
+// https://github.com/envoy1084/awesome-badges for the badges
+
 export const logos: Skill[] = [
   {
     type: 'Frontend',
@@ -45,12 +47,6 @@ export const logos: Skill[] = [
   },
   {
     type: 'Backend',
-    name: 'Ruby',
-    colour: 'CC342D',
-    logo: 'ruby'
-  },
-  {
-    type: 'Backend',
     name: 'C%2B%2B',
     colour: '00599C',
     logo: 'c%2B%2B'
@@ -68,6 +64,72 @@ export const logos: Skill[] = [
     logo: 'c-sharp'
   },
   {
+    type: 'Backend',
+    name: 'Clojure',
+    colour: '5881D8',
+    logo: 'clojure'
+  },
+  {
+    type: 'Backend',
+    name: 'Ruby',
+    colour: 'CC342D',
+    logo: 'ruby'
+  },
+  {
+    type: 'Frameworks',
+    name: 'React',
+    colour: '61DAFB',
+    logo: 'react'
+  },
+  {
+    type: 'Frameworks',
+    name: 'Next.js',
+    colour: '000000',
+    logo: 'next.js'
+  },
+  {
+    type: 'Frameworks',
+    name: 'NestJS',
+    colour: 'E0234E',
+    logo: 'nestjs'
+  },
+  {
+    type: 'Frameworks',
+    name: 'Ruby_on_Rails',
+    colour: 'CC0000',
+    logo: 'rubyonrails'
+  },
+  {
+    type: 'Frameworks',
+    name: 'Angular',
+    colour: 'DD0031',
+    logo: 'angular'
+  },
+  {
+    type: 'Databases',
+    name: 'PostgreSQL',
+    colour: '316192',
+    logo: 'postgresql'
+  },
+  {
+    type: 'Databases',
+    name: 'SQLite',
+    colour: '003B57',
+    logo: 'sqlite'
+  },
+  {
+    type: 'Databases',
+    name: 'Amazon_DynamoDB',
+    colour: '4053D6',
+    logo: 'amazondynamodb'
+  },
+  {
+    type: 'Databases',
+    name: 'Redis',
+    colour: 'DC382D',
+    logo: 'redis'
+  },
+  {
     type: 'Cloud',
     name: 'Amazon_AWS',
     colour: '232F3E',
@@ -81,50 +143,38 @@ export const logos: Skill[] = [
   },
   {
     type: 'Cloud',
+    name: 'Jenkins',
+    colour: 'D24939',
+    logo: 'jenkins'
+  },
+  {
+    type: 'Cloud',
     name: 'GitHub_Actions',
     colour: '2088FF',
     logo: 'github-actions'
   },
   {
-    type: 'Environments',
-    name: 'Windows',
-    colour: '0078D6',
-    logo: 'windows'
-  },
-  {
-    type: 'Environments',
-    name: 'Ubuntu',
-    colour: 'E95420',
-    logo: 'ubuntu'
-  },
-  {
-    type: 'Environments',
+    type: 'IDEs',
     name: 'VS_Code',
     colour: '0078D4',
     logo: 'visual%20studio%20code'
   },
   {
-    type: 'Environments',
+    type: 'IDEs',
     name: 'Visual_Studio',
     colour: 'AE7FE2',
     logo: 'visual%20studio'
   },
   {
-    type: 'Environments',
+    type: 'IDEs',
     name: 'Eclipse',
     colour: '2C2255',
     logo: 'eclipse'
   },
   {
-    type: 'Other',
-    name: 'ROS',
-    colour: '22314E',
-    logo: 'ros'
-  },
-  {
-    type: 'Other',
-    name: 'Unity',
-    colour: '100000',
-    logo: 'unity'
+    type: 'IDEs',
+    name: 'Android_Studio',
+    colour: '3DDC84',
+    logo: 'android%20studio'
   }
 ];
