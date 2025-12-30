@@ -5,7 +5,7 @@ import SkillGrid from './skill-grid';
 const Skills = (): JSX.Element => {
   return (
     <Grid container direction="row" justifyContent="space-around" alignItems="center" height="100%">
-      <Grid container justifyContent="center" alignItems="center" size={{ xs: 6 }}>
+      <Grid container justifyContent="center" alignItems="center" sx={{ flex: 1 }}>
         <img
           src="/assets/casual-portrait.jpg"
           alt="portrait"
@@ -19,7 +19,7 @@ const Skills = (): JSX.Element => {
         direction="column"
         justifyContent="center"
         alignItems="center"
-        size={{ xs: 6 }}
+        sx={{ flex: 1 }}
       >
         <Typography variant="h5" color="common.white">
           Technical Skills:

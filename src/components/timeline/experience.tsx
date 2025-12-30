@@ -22,24 +22,20 @@ const Experience = ({ jobInfo }: { jobInfo: jobInfo }): JSX.Element => {
       direction="row"
       justifyContent="flex-start"
       alignItems="center"
-      size="grow"
-      margin="30px"
+      sx={{ margin: '30px' }}
     >
       <Grid
         container
         direction="column"
         justifyContent="flex-start"
         alignItems="center"
-        size="grow"
-        height="100%"
+        sx={{ flex: 1, height: '100%' }}
       >
         <Grid
           container
           justifyContent="center"
           alignItems="center"
-          height="30vh"
-          size={{ xs: 8 }}
-          position="relative"
+          sx={{ height: '30vh', flex: '0 0 66.666%', position: 'relative' }}
         >
           <Image
             src={job.logo}
@@ -60,13 +56,7 @@ const Experience = ({ jobInfo }: { jobInfo: jobInfo }): JSX.Element => {
           {job.start} - {job.end}
         </Typography>
       </Grid>
-      <Grid
-        container
-        direction="column"
-        justifyContent="flex-start"
-        alignItems="center"
-        size="grow"
-      >
+      <Grid container direction="column" justifyContent="flex-start" alignItems="center">
         <List>
           {job.achievements.map((achievement) => (
             <ListItem key={achievement}>

@@ -74,7 +74,7 @@ const TimelinePage = (): JSX.Element => {
                 setSliderValue(Number(value));
               }}
               onChangeCommitted={(_, value) => {
-                handleSliderChangeCommit(value);
+                handleSliderChangeCommit(Number(value));
               }}
               sx={{
                 '& .MuiSlider-markLabel': {

@@ -23,7 +23,7 @@ const Interests = (): JSX.Element => {
         direction="column"
         justifyContent="center"
         alignItems="center"
-        size={{ xs: 6 }}
+        sx={{ flex: 1 }}
       >
         <Typography variant="h3" color="common.white" fontFamily="monaco">
           About me:
@@ -34,7 +34,7 @@ const Interests = (): JSX.Element => {
           </Typography>
         </Grid>
       </Grid>
-      <Grid container justifyContent="center" alignItems="center" size={{ xs: 6 }}>
+      <Grid container justifyContent="center" alignItems="center" sx={{ flex: 1 }}>
         <img
           src="/assets/beach-portrait.jpg"
           alt="portrait"

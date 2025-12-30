@@ -26,9 +26,7 @@ export const SkillGrid = (): JSX.Element => {
             direction="row"
             justifyContent="center"
             alignItems="center"
-            width="100%"
-            marginTop="10px"
-            size={{ xs: 6 }}
+            sx={{ width: '100%', marginTop: '10px', flex: 1 }}
           >
             {groupedSkills[category].map((skill) => (
               <img

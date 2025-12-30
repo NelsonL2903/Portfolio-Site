@@ -26,10 +26,7 @@ const Profile = (): JSX.Element => {
             direction="row"
             justifyContent="left"
             alignItems="center"
-            size={{ xs: 6 }}
-            height="100%"
-            marginTop="25px"
-            sx={{ pointerEvents: 'auto' }}
+            sx={{ flex: 1, height: '100%', marginTop: '25px', pointerEvents: 'auto' }}
           >
             <Typography variant="h4" color="common.white" marginRight="8px" fontFamily="monaco">
               Links:
