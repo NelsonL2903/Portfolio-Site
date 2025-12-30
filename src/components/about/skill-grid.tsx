@@ -1,5 +1,5 @@
 import { Typography } from '@mui/material';
-import Grid from '@mui/material/Grid';
+import Grid from '@mui/material/Grid2';
 import { logos } from '../utils/skills-info';
 import type { Skill } from '../utils/types';
 import { Fragment } from 'react';
@@ -26,7 +26,9 @@ export const SkillGrid = (): JSX.Element => {
             direction="row"
             justifyContent="center"
             alignItems="center"
-            sx={{ width: '100%', marginTop: '10px', flex: 1 }}
+            width="100%"
+            marginTop="10px"
+            size={{ xs: 6 }}
           >
             {groupedSkills[category].map((skill) => (
               <img

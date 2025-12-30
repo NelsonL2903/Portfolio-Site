@@ -1,4 +1,6 @@
-import { Typography, Grid } from '@mui/material';
+import React from 'react';
+import { Typography } from '@mui/material';
+import Grid from '@mui/material/Grid2';
 import { ReactTyped } from 'react-typed';
 
 const typedStrings = [
@@ -23,7 +25,7 @@ const Interests = (): JSX.Element => {
         direction="column"
         justifyContent="center"
         alignItems="center"
-        sx={{ flex: 1 }}
+        size={{ xs: 6 }}
       >
         <Typography variant="h3" color="common.white" fontFamily="monaco">
           About me:
@@ -34,7 +36,7 @@ const Interests = (): JSX.Element => {
           </Typography>
         </Grid>
       </Grid>
-      <Grid container justifyContent="center" alignItems="center" sx={{ flex: 1 }}>
+      <Grid container justifyContent="center" alignItems="center" size={{ xs: 6 }}>
         <img
           src="/assets/beach-portrait.jpg"
           alt="portrait"

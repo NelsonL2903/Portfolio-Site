@@ -1,4 +1,5 @@
-import { Grid, Stack, Typography } from '@mui/material';
+import { Stack, Typography } from '@mui/material';
+import Grid from '@mui/material/Grid2';
 import ImageLink from '../utils/image-link';
 
 const Profile = (): JSX.Element => {
@@ -26,7 +27,10 @@ const Profile = (): JSX.Element => {
             direction="row"
             justifyContent="left"
             alignItems="center"
-            sx={{ flex: 1, height: '100%', marginTop: '25px', pointerEvents: 'auto' }}
+            size={{ xs: 6 }}
+            height="100%"
+            marginTop="25px"
+            sx={{ pointerEvents: 'auto' }}
           >
             <Typography variant="h4" color="common.white" marginRight="8px" fontFamily="monaco">
               Links:

@@ -1,5 +1,5 @@
 import { Typography, List, ListItem, ListItemIcon, ListItemText } from '@mui/material';
-import Grid from '@mui/material/Grid';
+import Grid from '@mui/material/Grid2';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import type { StaticImageData } from 'next/image';
 import Image from 'next/image';
@@ -22,20 +22,24 @@ const Experience = ({ jobInfo }: { jobInfo: jobInfo }): JSX.Element => {
       direction="row"
       justifyContent="flex-start"
       alignItems="center"
-      sx={{ margin: '30px' }}
+      size="grow"
+      margin="30px"
     >
       <Grid
         container
         direction="column"
         justifyContent="flex-start"
         alignItems="center"
-        sx={{ flex: 1, height: '100%' }}
+        size="grow"
+        height="100%"
       >
         <Grid
           container
           justifyContent="center"
           alignItems="center"
-          sx={{ height: '30vh', flex: '0 0 66.666%', position: 'relative' }}
+          height="30vh"
+          size={{ xs: 8 }}
+          position="relative"
         >
           <Image
             src={job.logo}
@@ -56,7 +60,13 @@ const Experience = ({ jobInfo }: { jobInfo: jobInfo }): JSX.Element => {
           {job.start} - {job.end}
         </Typography>
       </Grid>
-      <Grid container direction="column" justifyContent="flex-start" alignItems="center">
+      <Grid
+        container
+        direction="column"
+        justifyContent="flex-start"
+        alignItems="center"
+        size="grow"
+      >
         <List>
           {job.achievements.map((achievement) => (
             <ListItem key={achievement}>

@@ -1,7 +1,8 @@
 'use client';
 
 import { useState, useCallback } from 'react';
-import { Box, Button, Grid, Slider, Typography } from '@mui/material';
+import { Box, Button, Slider, Typography } from '@mui/material';
+import Grid from '@mui/material/Grid2';
 import { NavigateBefore, NavigateNext } from '@mui/icons-material';
 import Experience from '@/components/timeline/experience';
 import { jobs } from '@/components/utils/jobs_info';

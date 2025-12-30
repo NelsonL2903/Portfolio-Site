@@ -1,11 +1,11 @@
 import { Typography } from '@mui/material';
-import Grid from '@mui/material/Grid';
+import Grid from '@mui/material/Grid2';
 import SkillGrid from './skill-grid';
 
 const Skills = (): JSX.Element => {
   return (
     <Grid container direction="row" justifyContent="space-around" alignItems="center" height="100%">
-      <Grid container justifyContent="center" alignItems="center" sx={{ flex: 1 }}>
+      <Grid container justifyContent="center" alignItems="center" size={{ xs: 6 }}>
         <img
           src="/assets/casual-portrait.jpg"
           alt="portrait"
@@ -19,7 +19,7 @@ const Skills = (): JSX.Element => {
         direction="column"
         justifyContent="center"
         alignItems="center"
-        sx={{ flex: 1 }}
+        size={{ xs: 6 }}
       >
         <Typography variant="h5" color="common.white">
           Technical Skills:
