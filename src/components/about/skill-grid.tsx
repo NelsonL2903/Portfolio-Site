@@ -1,5 +1,5 @@
 import { Typography } from '@mui/material';
-import Grid from '@mui/material/Grid';
+import Grid from '@mui/material/Grid2';
 import { logos } from '../utils/skills-info';
 import type { Skill } from '../utils/types';
 import { Fragment } from 'react';

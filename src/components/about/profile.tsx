@@ -1,4 +1,5 @@
-import { Grid, Stack, Typography } from '@mui/material';
+import { Stack, Typography } from '@mui/material';
+import Grid from '@mui/material/Grid2';
 import ImageLink from '../utils/image-link';
 
 const Profile = (): JSX.Element => {
@@ -44,7 +45,6 @@ const Profile = (): JSX.Element => {
               url="https://github.com/NelsonL2903"
               alt="Github"
             />
-            <ImageLink src="/assets/itchio.jpg" url="https://nelsonl2903.itch.io/" alt="Itch" />
           </Grid>
         </Grid>
       </Stack>

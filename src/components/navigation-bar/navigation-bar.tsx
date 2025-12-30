@@ -1,7 +1,7 @@
 'use client';
 
 import { Button, Typography } from '@mui/material';
-import Grid from '@mui/material/Grid';
+import Grid from '@mui/material/Grid2';
 import { useRouter, usePathname } from 'next/navigation';
 import React from 'react';
 
@@ -10,7 +10,7 @@ const NavigationBar = (): JSX.Element => {
   const pathname = usePathname();
 
   const NavigationItem = ({ text, route }: { text: string; route: string }): JSX.Element => (
-    <Grid display="flex" justifyContent="center" alignItems="center" size="grow">
+    <Grid display="flex" justifyContent="center" alignItems="center" sx={{ flex: 1 }}>
       <Button type="button" onClick={() => router.push(route)}>
         <Typography variant="h5" color={pathname == route ? '' : 'white'}>
           {text}

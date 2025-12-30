@@ -9,7 +9,8 @@ import ArrowUpward from '@mui/icons-material/ArrowUpward';
 import ArrowDownward from '@mui/icons-material/ArrowDownward';
 import ParallaxCard from './ParallaxCard';
 import { CARD_HEIGHT, CARD_NUM, CARD_WIDTH } from './constants';
-import { Box, Grid } from '@mui/material';
+import { Box } from '@mui/material';
+import Grid from '@mui/material/Grid2';
 import { decrementPage, incrementPage } from './helpers';
 import Profile from './profile';
 

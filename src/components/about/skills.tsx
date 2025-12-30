@@ -1,5 +1,5 @@
 import { Typography } from '@mui/material';
-import Grid from '@mui/material/Grid';
+import Grid from '@mui/material/Grid2';
 import SkillGrid from './skill-grid';
 
 const Skills = (): JSX.Element => {

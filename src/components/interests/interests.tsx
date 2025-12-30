@@ -1,4 +1,6 @@
-import { Typography, Grid } from '@mui/material';
+import React from 'react';
+import { Typography } from '@mui/material';
+import Grid from '@mui/material/Grid2';
 import { ReactTyped } from 'react-typed';
 
 const typedStrings = [
