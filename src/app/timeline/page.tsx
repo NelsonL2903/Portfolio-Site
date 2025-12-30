@@ -18,7 +18,7 @@ const marks: Mark[] = jobs.map((job, index) => ({
 }));
 
 const TimelinePage = (): JSX.Element => {
-  const [sliderValue, setSliderValue] = useState(0);
+  const [sliderValue, setSliderValue] = useState(100);
 
   const sliderIndex = Math.min(
     Math.max(Math.round(sliderValue / markBaseValue), 0),
